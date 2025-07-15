@@ -1,0 +1,108 @@
+[flex] {
+    display: flex;
+}
+
+button {
+    padding: 8px;
+    margin: 8px;
+    background-color: #dedede;
+    color: gray;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+h1 {
+    color: #ffffff;
+    margin: 2px;
+}
+
+#navbar {
+    width: 100vw;
+    padding: 16px;
+    justify-content: space-evenly;
+    box-shadow: 0 0 5px 2px gray;
+    user-select: none;
+    background: #22d3ee;
+    img {
+        height: 6vh;
+        margin: 6px;
+    }
+}
+
+main {
+    width: 100vw;
+    margin-top: 40px;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.route-change-box {
+    margin: 8px;
+}
+
+#route-select {
+    padding: 8px;
+    width: 25vw;
+    border: 0;
+    background: #eee;
+    border-radius: 5px;
+}
+
+#route-map {
+    width: 768px;
+    margin-top: 20px;
+    min-height: 60vh;
+    box-shadow: 0 0 5px 0 #d0d0d0;
+}
+input,select,textarea{
+    padding: 8px;
+    border: #22d3ee 1px solid;
+    border-radius: 4px;
+    margin: 8px;
+}
+
+table tr:nth-child(odd) {
+    background: #dbdbdb;
+}
+
+table tr:nth-child(even) {
+    background: #eee;
+}
+th,td{
+    padding: 8px;
+    min-width: 200px;
+}
+#logout-box{
+    min-width: 500px;
+    flex-direction: column;
+}
+#captcha{
+    cursor: auto;
+}
+#login-box{
+    min-width: 500px;
+    flex-direction: column;
+}
+#manage-box{
+    flex-direction: column;
+}
+#manage-text{
+    display: flex;
+    justify-content: center;
+}
+.manage-button-box{
+    display: flex;
+    justify-content: center;
+}

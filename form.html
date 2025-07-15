@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大眾運輸查詢系統</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+</head>
+
+<body flex>
+    <nav id="navbar" flex>
+        <div flex style="cursor: pointer;" data-link="index.html" class="href-btn">
+            <img src="./img/logo.png" alt="LOGO" id="logo">
+            <h1>大眾運輸查詢系統</h1>
+        </div>
+    </nav>
+    <main flex>
+        <div style="display: flex; flex-direction: column; width:25vw;">
+            <h2>意見調查表單</h2>
+            <label for="route">路線</label>
+            <input type="text" id="route" name="route" required>
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">信箱</label>
+            <input type="email" id="email" name="email" required>
+            <label for="note">寶貴意見</label>
+            <TEXTAREA id="note" name="note" rows="4" placeholder="寶貴意見..."></textarea>
+                
+                <button type="submit" id="submit-button">送出</button>
+            </div>
+    </main>
+    <script src="./script/jqueryv3.7.1.js"></script>
+    <script src="./script/main.js"></script>
+    <script>
+        $(document).ready(function(){
+    // 頁面載入時先判斷
+    $.get('./api/get.php', {mode:'form-state'}, function(data){
+        let state = data[0]?.state === '1';
+        let start = data[0]?.start ? new Date(data[0].start) : null;
+        let end = data[0]?.end ? new Date(data[0].end) : null;
+        let now = new Date();
+        let canFill = true;
+        let msg = '';
+        if(!state) {
+            canFill = false;
+            msg = '目前不開放填寫表單';
+        } else if(start && now < start) {
+            canFill = false;
+            msg = '尚未開始填寫表單';
+        } else if(end && now > end) {
+            canFill = false;
+            msg = '已超過填寫表單時間';
+        }
+        if(!canFill) {
+            // 禁用所有欄位與按鈕
+            $('#route, #name, #email, #note, #submit-button').prop('disabled', true);
+            // 顯示提示
+            $('<div style="color:red;margin:12px 0;">'+msg+'</div>').insertBefore('#submit-button');
+        }
+    }, 'json');
+
+    // 送出時只需檢查欄位必填即可
+    $('#submit-button').on('click', function(e){
+        e.preventDefault();
+        if($(this).prop('disabled')) return;
+        // ...原本送出流程...
+    });
+});
+    </script>
+</body>
+
+</html>

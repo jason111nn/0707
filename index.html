@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大眾運輸查詢系統</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+</head>
+
+<body flex>
+    <nav id="navbar" flex>
+        <div flex style="cursor: pointer;" data-link="index.html" class="href-btn">
+            <img src="./img/logo.png" alt="LOGO" id="logo">
+            <h1>大眾運輸查詢系統</h1>
+        </div>
+        <div flex>
+            <button class="href-btn" data-link="manage.html">系統管理</button>
+            <button id="logout-button">登出</button>
+        </div>
+    </nav>
+    <main flex>
+        <div class="route-change-box">
+            <label for="route-select" style="color: white;">請選擇路線:</label>
+            <select name="route-select" id="route-select">
+            </select>
+        </div>
+
+        <svg id="route-map" width="768" viewBox="0 0 768 600" xmlns="http://www.w3.org/2000/svg">
+
+        </svg>
+    </main>
+    <script src="./script/jqueryv3.7.1.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./script/simple-tracker.js"></script>
+</body>
+
+</html>

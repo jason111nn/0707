@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大眾運輸查詢系統</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo.png">
+</head>
+
+<body flex>
+    <nav id="navbar" flex>
+        <div flex style="cursor: pointer;" data-link="index.html" class="href-btn">
+            <img src="./img/logo.png" alt="LOGO" id="logo">
+            <h1>大眾運輸查詢系統</h1>
+        </div>
+        <div flex>
+            <button class="href-btn" data-link="manage.html">系統管理</button>
+            <button id="logout-button">登出</button>
+        </div>
+    </nav>
+    <main flex>
+        <div id="logout-box">
+            <h2>網站管理</h2>
+            <label for="name">帳號</label>
+            <input type="text" name="username" id="usernㄠame">
+            <label for="password">密碼</label>
+            <input type="password" name="password" id="password">
+            <label for="veri">驗證碼</label>
+            <input type="text" name="veri" id="veri">
+            <input type="text" name="captcha" id="captcha" readonly>
+            <button id="regenerate-captcha-button">重新產生驗證碼</button>
+            <button id="login-button">送出</button>
+        </div>
+        <div id="login-box">
+            <div flex class="manage-button-box">
+                <button class="manage-btn" data-mode="route" id="route-link">路線管理</button>
+                <button class="manage-btn" data-mode="bus" id="bus-link">車輛管理</button>
+                <button class="manage-btn" data-mode="station" id="station-link">站點管理</button>
+                <button class="manage-btn" data-mode="form" id="form-link">表單管理</button>
+            </div>
+            <div id="manage-box" flex>
+                
+            </div>
+        </div>
+    </main>
+    <script src="./script/jqueryv3.7.1.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./manage.js"></script>
+</body>
+
+</html>
